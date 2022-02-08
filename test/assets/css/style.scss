@@ -1,0 +1,191 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+body{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba($color: #ccc, $alpha: 0.4);
+}
+
+.container{
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.header{
+    width: 100%;
+    .header__navbar{
+        display: flex;
+        justify-content: center;
+        background-color: #2e2e2e;
+        ul{
+            width: 1160px;
+            display: flex;
+            li{
+                margin-left: 22px;
+                margin-top: 4px;
+                margin-bottom: 4px;
+                a{
+                    text-transform: uppercase;
+                    color: #ccc;
+                    font-size: 12px;
+                }
+                a:hover{
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .header__taskbar{
+        height: 45px;
+        background-color: #222;
+        display: flex;
+        justify-content: center;
+        .taskbar--main{
+            width: 1160px;
+            display: flex;
+            justify-content: space-between;
+            ul{
+                display: flex;
+                align-items: center;
+                a{
+                    text-transform: uppercase;
+                    color: #fff;
+                    padding: 4px 12px;
+                    img{
+                        width: 140px;
+                        height: 45px;
+                        transform: translate(-12px, 2px);
+                    }
+                }
+                a:hover{
+                    color: red;
+                }
+            }
+            i{
+                color: #fff;
+                padding: 4px 12px;
+                font-size: 23px;
+            }
+            i:hover{
+                cursor: pointer;
+                color: red;
+            }
+        }
+    }
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content-main{
+    width: 1160px;
+    display: flex;
+    padding-top: 25px;
+    .content__left{
+        flex: 1;
+        .content__left--first{
+            margin-bottom: 50px;
+            a{
+                font-size: 22px;
+                overflow: hidden;
+                img{
+                    border-radius: 5px;
+                    width: 600px;
+                }
+            }
+            a:hover{
+                color: rgb(134, 134, 134);
+            }
+        }
+        .content__left--second{
+            width: 600px;
+            display: flex;
+            justify-content: space-between;
+            .left--second{
+                width: 290px;
+                a{
+                    font-size: 17px;
+                    img{
+                        width: 100%;
+                        height: 200px;
+                        border-radius: 5px;
+                    }
+                }
+                a:hover{
+                    color: rgb(134, 134, 134);
+                }
+            }
+        }
+    }
+    .content__right{
+        flex: 1;
+        display: flex;
+        margin-left: 30px;
+        .content__right--main{
+            flex: 1;
+            .right--main-first{
+                width: 275px;
+                margin-bottom: 25px;
+                a{
+                    font-size: 17px;
+                    img{
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+                }
+                a:hover{
+                    color: rgb(134, 134, 134);
+                }
+            }
+            .right--main-second{
+                width: 275px;
+                display: flex;
+                padding: 25px 0;
+                border-top: 1px dashed #e5e5e5;
+                a{
+                    flex: 1;
+                    font-size: 14px;
+                    img{
+                        width: 90%;
+                        border-radius: 5px;
+                    }
+                }
+                a:hover{
+                    color: rgb(134, 134, 134);
+                }
+            }
+        }
+        .content__right--advertisement{
+            flex: 1;
+            margin-left: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ccc;
+        }
+
+    }
+}
+
+

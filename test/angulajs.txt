@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hiển thị mảng sinh viên</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  </head>
+  <body ng-controller="MyController">
+      <div class="container">  
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Năm sinh</th>
+                    <th>Địa Chỉ</th>
+                    <th>Email or Facebook</th>
+                    <th>SĐT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="std in stdList">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ std.fullname }}</td>
+                    <td>{{ std.age }}</td>
+                    <td>{{ std.address }}</td>
+                    <td>{{ std.email }}</td>
+                    <td>{{ std.phonenum }}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+  </body>
+  <script src="./assets/js/app.js"></script>
+</html>
+ 89  bt2696_xuLiEventBangAngularJS/index.html 
+@@ -0,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tính tổng của a và b</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        .container{
+            border: 1px solid rgb(77, 77, 228);
+        }
+
+        .container h3{
+            background-color: rgb(77, 77, 228);
+            color: white;
+            padding: 8px 16px;
+            margin: 0 auto;
+        }
+
+        .content{
+            padding: 10px 20px;
+        }
+
+        .content button{
+            background-color: green;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            margin: auto 10px;
+            transition: 0.25s;
+        }
+        .content button:hover{
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body ng-controller="MyController">
+    <div class="container">
+        <h3>Tính tổng</h3>
+        <div class="content">
+            <button ng-click="nhapA()">Nhập Giá Trị A</button>
+            <button ng-click="nhapB()">Nhập Giá Trị B</button>
+            <button ng-click="tinhTong()">In Kết Quả</button>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('MyApp', []);
+        app.controller('MyController', function($scope) {
+            $scope.nhapA = function(){
+                $scope.a = prompt('Nhập giá trị a: ')
+            }
+            $scope.nhapB = function(){
+                $scope.b = prompt('Nhập giá trị b: ')
+            }
+            $scope.tinhTong = function(){
+                $scope.result = parseFloat($scope.a)  + parseFloat($scope.b);
+                alert('Tổng của a và b là: ' + $scope.result);
+            }
+        })
+    </script>
+
+    <!-- <script>
+        var a
+        var b
+        function nhapA(){
+            a = parseFloat(prompt('Hãy nhập giá trị cho A = ', 0))
+            return a
+        }
+        function nhapB(){
+            b = parseFloat(prompt('Hãy nhập giá trị cho B = ', 0))
+            return b
+        }
+        function tinhTong(){
+            var tong = a + b;
+            if(isNaN(tong)){
+                var sum = nhapA() + nhapB()
+                alert('Tổng của A và B là: ' + sum);
+            }else{
+                alert('Tổng của A và B là: ' + tong);
+            }
+        }
+    </script> -->
+</body>
+</html> 
+ 127  bt2697_thietKeCalculator/index.html 
+@@ -0,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container{
+            border: 0.5px solid #ccc;
+            height: 388px;
+            width: 700px;
+            border-radius: 10px;
+        }
+
+        #result{
+            border: 0.5px solid #ccc;
+            border-radius: 10px;
+            height: 36px;
+            padding: 20px;
+            text-align: right;
+            margin: 16px;
+            font-size: 30px;
+        }
+
+        .row{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 15px auto;
+        }
+
+        .btn{
+            padding: 5px 10px;
+            width: 90px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            font-size: larger;
+            font-weight: bold;
+            background-color: rgb(168, 164, 164);
+        }
+
+        .btn:hover{
+            transform: scale(0.9);
+
+        }
+
+        .number{
+            background-color: rgba(239, 239, 239, 1);
+        }
+
+        .equal-btn{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="result"></div>
+        <div class="calculate">
+            <div class="row">
+                <button class="btn">Rad</button>
+                <button class="btn">Deg</button>
+                <button class="btn" value="!">x!</button>
+                <button class="btn" value="(">(</button>
+                <button class="btn" value=")">)</button>
+                <button class="btn" value="%">%</button>
+                <button class="btn equal-btn" onclick="clean()">AC</button>
+            </div>
+            <div class="row">
+                <button class="btn" value="Inv(">Inv</button>
+                <button class="btn" value="sin(">sin</button>
+                <button class="btn" value="In(">In</button>
+                <button class="btn number" value="7">7</button>
+                <button class="btn number" value="8">8</button>
+                <button class="btn number" value="9">9</button>
+                <button class="btn" value="/">&#247;</button>
+            </div>
+            <div class="row">
+                <button class="btn" value="3.14">&pi;</button>
+                <button class="btn" value="cos(">cos</button>
+                <button class="btn" value="log(">log</button>
+                <button class="btn number" value="4">4</button>
+                <button class="btn number" value="5">5</button>
+                <button class="btn number" value="6">6</button>
+                <button class="btn" value="*">&#215;</button>
+            </div>
+            <div class="row">
+                <button class="btn" value="e">e</button>
+                <button class="btn" value="tan(">tan</button>
+                <button class="btn" value="Math.sqrt(">&#8730;</button>
+                <button class="btn number" value="1">1</button>
+                <button class="btn number" value="2">2</button>
+                <button class="btn number" value="3">3</button>
+                <button class="btn" value="-">-</button>
+            </div>
+            <div class="row">
+                <button class="btn">Ans</button>
+                <button class="btn">EXP</button>
+                <button class="btn" value="**">x<sup>y</sup></button>
+                <button class="btn number" value="0">0</button>
+                <button class="btn number" value=".">.</button>
+                <button class="btn equal-btn" onclick="equal()">=</button>
+                <button class="btn" value="+">+</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const numbers = document.getElementsByClassName('btn')
+        const result = document.getElementById('result')
+        for (var number of numbers){
+            number.addEventListener('click', function(){
+                result.innerHTML += this.value
+            })
+        }
+        function equal(){
+            var res = result.innerHTML
+            var output = eval(res)
+            result.innerHTML = output
+        }
+
+        function clean(){
+            result.innerHTML = " "
+        }
+    </script>
+</body>
+</html> 
