@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Student Management Page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+	<style type="text/css">
+		.container {
+			width: 600px;
+			margin: 0px auto;
+			border: solid #d6d6d6 1px;
+			margin-bottom: 20px;
+		}
+
+		.container .heading {
+			font-size: 16px;
+			background-color: #28a745;
+			color: white;
+			padding: 15px;
+			font-weight: bold;
+		}
+
+		.container .body label, .container .body input {
+			width: 95%;
+			margin-bottom: 15px;
+			font-size: 15px;
+			margin: 15px;
+		}
+
+		.container .body button {
+			font-size: 15px;
+			margin-bottom: 15px;
+		}
+
+		.btn-success {
+			background-color: #28a745;
+			margin-left: 15px;
+			border: none;
+			padding: 5px;
+			color: white;
+		}
+
+		.btn-warning {
+			background-color: orange;
+			margin-left: 5px;
+			border: none;
+			padding: 5px;
+			color: black;
+		}
+
+		.btn-danger {
+			background-color: red;
+			margin-left: 5px;
+			border: none;
+			padding: 5px;
+			color: white;
+		}
+		table {
+			width: 100%;
+		}
+	</style>
+</head>
+<body ng-controller="MyController">
+	<div class="container">
+			<div class="heading">
+				Input Student's Detail Information
+			</div>
+			
+				<div class="body">
+					<label>Full Name: </label><br>
+					<input required type="text" name="fullname" placeholder="Enter fullname" class="form-control" ng-model="editUser.fullname">
+					<label>Age: </label><br>
+					<input required type="text" name="age" placeholder="Enter age" class="form-control" ng-model="editUser.age">
+					<label>Address: </label><br>
+					<input required type="text" name="address" placeholder="Enter address" class="form-control" ng-model="editUser.address">
+				<button class="btn btn-success" ng-click="saveUser()">Save</button>
+				<button class="btn btn-warning" ng-click="resetUser()">Reset</button>
+	            </div>
+		</div>
+
+		<div class="" style="margin-top: 30px">
+			<div class="card-heading bg-info pb-2 pt-2" style="padding-left: 20px; font-weight: bold; font-size: 18px; color: white">
+				Student's Information Management
+			</div>
+			<div class="container">
+				<table border="1px">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Full Name</th>
+							<th>Age</th>
+							<th>Address</th>
+							<th style="width: 50px"></th>
+							<th style="width: 50px"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in studentList">
+							<td>{{ $index + 1 }}</td>
+							<td>{{ item.fullname }}</td>
+							<td>{{ item.age }}</td>
+							<td>{{ item.address }}</td>
+							<td style="width: 50px">
+								<button ng-click="updateStudent($index)">Edit</button>
+							</td>
+							<td style="width: 50px">
+								<button  ng-click="removeStudent($index)">Remove</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	var app = angular. module('MyApp', [])
+	app. controller('MyController', ['$scope', function ($scope) {
+		// index: 0 -> length - 1
+		$scope.studentList = []
+		$scope.currentIndex = -1
+		$scope.editUser = {
+			'fullname': '',
+			'age': '',
+			'address': ''
+		}
+
+		$scope.resetUser = function() {
+			$scope.editUser.fullname = ''
+			$scope.editUser.age = ''
+			$scope.editUser.address = ''
+		}
+
+		$scope.saveUser = function() {
+			if($scope.editUser.fullname == '') {
+				return alert('Let\'s input student\' detail information, plz!!!')
+			}
+			if($scope.currentIndex >= 0) {
+				$scope.studentList[$scope.currentIndex].fullname = $scope.editUser.fullname
+				$scope.studentList[$scope.currentIndex].age = $scope.editUser.age
+				$scope.studentList[$scope.currentIndex].address = $scope.editUser.address
+				$scope.currentIndex = -1
+				return
+			}
+			$scope.studentList.push({
+				'fullname': $scope.editUser.fullname,
+				'age': $scope.editUser.age,
+				'address': $scope.editUser.address
+			})
+		}
+
+		$scope.updateStudent = function(index) {
+			$scope.currentIndex = index
+			$scope.editUser.fullname = $scope.studentList[index].fullname
+			$scope.editUser.age = $scope.studentList[index].age
+			$scope.editUser.address = $scope.studentList[index].address
+		}
+
+		$scope.removeStudent = function(index) {
+			var option = confirm('Are you sure to remove the student?')
+			if(!option) return
+			$scope.studentList.splice(index, 1)
+		}
+	}])
+</script>
+</body>
+</html>
