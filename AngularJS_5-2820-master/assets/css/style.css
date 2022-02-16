@@ -1,0 +1,196 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
+
+}
+
+.banner{
+
+}
+
+.taskbar{
+    display: flex;
+    background-color: rgb(214, 65, 65);
+    padding-left: 100px;
+}
+
+.taskbar-btn{
+    width: 146px;
+    text-align: center;
+    padding: 14px;
+    background-color: rgb(214, 65, 65);
+    border: none;
+    margin: 0 -4px;
+}
+
+.taskbar-btn:hover
+ {
+    background-color: aqua;
+}
+
+.taskbar-btn a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.taskbar-icon{
+    margin-left: 13px;
+    color: #fff;
+}
+
+.taskbar-btn .ti-home::before{
+    margin-right: 8px;
+}
+
+
+.content{
+    display: flex;
+    margin: 30px 70px;
+}
+
+.content-left{
+    flex: 3;
+}
+
+.content-right{
+    flex: 1;
+}
+
+.search input{
+    background-color: #ccc;
+    height: 34px;
+    width: 80%;
+    padding-left: 10px;
+    border: none;
+}
+
+.content-right-main h2{
+    margin: 20px 0;
+}
+
+.content-right-submain{
+    display: flex;
+    margin: 20px 0;
+}
+
+.content-right-nav{
+    flex: 1;
+}
+
+.content-right-nav div{
+    width: 80%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: small;
+}
+
+.content-right-subnav{
+    flex: 1;
+    padding: 4px;
+    text-align: left;
+    font-size: large;
+}
+
+.content-left h2{
+    margin: 30px auto 30px 30px;
+    color: rgb(63, 60, 60)
+}
+
+.content-left-main{
+    display: flex;
+    margin: 54px 0;
+}
+
+.left-main-img{
+    flex: 1;
+    background-color: rgb(75, 196, 156);
+    height: 176px;
+    margin: 0 30px;
+}
+
+.left-main-img h2{
+    background-color: #000;
+    color: white;
+    margin: 16px 260px 16px 16px;
+}
+.left-main-img p{
+    background-color: #000;
+    color: white;
+    margin: 16px 260px 16px 16px;
+}
+
+.left-main-content{
+    flex: 1;
+    margin: 0 30px;
+}
+
+.left-main-content h4{
+    margin-bottom: 55px;
+}
+
+.left-main-content p{
+    margin: 30px 0;
+}
+
+.left-main-content a{
+    color: red;
+    text-decoration: none;
+}
+
+.footer-icon{
+    display: flex;
+}
+
+.footer-icon .icon{
+    margin: 10px 15px;
+    font-size:xx-large;
+    text-decoration: none;
+    color: #000;
+    background-color: blue;
+    width: 34px;
+    height: 34px;
+    padding: 10px;
+}
+
+.footer-icon .ti-facebook::before{
+    color: white;
+}
+
+.footer-icon .ti-email::before{
+    color: white;
+}
+
+.footer-icon .youtube-icon{
+    background-color: red;
+    color: white;
+}
+
+.footer h2{
+    margin: 20px 15px;
+}
+
+.footer .follow-icon{
+    background-color: red;
+    font-size: xx-large;
+    padding: 10px 25px;
+    border-radius: 15px;
+}
+
+.footer .follow-icon a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer .follow-icon .ti-youtube::before{
+    margin:10px 50px 5px 25px;
+}
+
+.follow-icon:hover{
+    background-color: rgb(211, 14, 14);
+}

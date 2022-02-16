@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BT2820_Thiết Kế Website</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/themify-icons/themify-icons.css">
+	<!-- AngularJS -> framework (js) -> duoc viet bang js (library js) -> file .js -> nhung cdn vao web -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+    <div class="container">
+        <div class="header">
+            <div class="banner">
+                <img src="./assets/img/excel-logo.png" alt="">
+            </div>
+
+            <div class="taskbar">
+                <button class="taskbar-btn">
+                    <a href="#" class="ti-home">Trang chủ</a>
+                <button>
+                <button class="taskbar-btn">
+                    <a href="">Series bài viết</a>
+                    <span class="taskbar-icon">&#8744;</span>
+                <button>
+                <button class="taskbar-btn">
+                    <a href="">Tài nguyên</a>
+                    <span class="taskbar-icon">&#8744;</span>
+
+                <button>
+                <button class="taskbar-btn">
+                    <a href="">Khóa học</a>
+                    <span class="taskbar-icon">&#8744;</span>
+
+                <button>
+                <button class="taskbar-btn">
+                    <a href="">Công cụ</a>
+                    <span class="taskbar-icon">&#8744;</span>
+
+                <button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content-left">
+                <h2>LASTEST ARTICLES</h2>
+                <div class="content-left-main" ng-repeat="leftContent in leftContents">
+                    <div class="left-main-img">
+                        <h2>Power Query</h2>
+                        <p>{{ leftContent.title }}</p>
+                    </div>
+                    <div class="left-main-content">
+                        <h4>Power Query - {{ leftContent.title }}</h4>
+                        <p>{{ leftContent.content }}</p>
+                        <a href="">Continue reading ...</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-right">
+                <div class="search">
+                    <input type="text" placeholder="Search" class="search-input">
+                </div>
+                <div class="content-right-main">
+                    <h2>BÀI VIẾT XEM NHIỀU NHẤT</h2>
+                    <div class="content-right-submain" ng-repeat="rightContent in rightContents">
+                        <div class="content-right-nav">
+                            <div>
+                                {{ rightContent }}
+                            </div>
+                        </div>
+                        <div class="content-right-subnav">
+                            {{ rightContent }}
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="footer-icon">
+                        <a href="" class="ti-facebook icon facebook-icon"></a>
+                        <a href="" class="ti-youtube icon youtube-icon"></a>
+                        <a href="" class="ti-email icon email-icon"></a>
+                    </div>
+                    <h2>FOLLOW KÊNH YOUTUBE</h2>
+                    <button class="follow-icon">
+                        <a href="" class="ti-youtube">THEO DÕI</a>
+                    </button>
+                </div>
+            </div>
+        </div>        
+    </div>
+</body>
+<script src="./assets/js/app.js"></script>
+</html>
